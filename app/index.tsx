@@ -1,15 +1,6 @@
-import { Text, View } from "react-native";
+import { AppRoutes } from "./routes";
+// import i18n from "./i18n.config";
 
 export default function Index() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
-  );
+  return <AppRoutes></AppRoutes>;
 }
