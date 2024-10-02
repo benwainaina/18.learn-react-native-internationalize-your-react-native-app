@@ -9,5 +9,6 @@ export const useTranslation = () => {
   return {
     setLanguage: (newLanguage: string) => i18n.changeLanguage(newLanguage),
     translate: (translationKey: string) => t(translationKey),
+    currentLanguage: () => i18n.language,
   };
 };
