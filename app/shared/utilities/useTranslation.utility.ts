@@ -1,6 +1,6 @@
 import { useTranslation as translationLibrary } from "react-i18next";
 
-export const useTranslation = () => {
+export const useTranslationUtility = () => {
   /**
    * translation hook
    */
