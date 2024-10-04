@@ -1,12 +1,12 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import LogoPng from "../../assets/images/logo.png";
-import { useTranslationUtility } from "../shared/utilities/useTranslation.utility";
+import { useTranslation } from "react-i18next";
 
 export const HomeComponent = () => {
   /**
    * hooks
    */
-  const { translate } = useTranslationUtility();
+  const { t: translate } = useTranslation();
 
   return (
     <View style={styles.wrapper}>

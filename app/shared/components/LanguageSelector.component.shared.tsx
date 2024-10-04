@@ -6,9 +6,9 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
-import { useTranslationUtility } from "../utilities/useTranslation.utility";
 import ChevronDown from "../../../assets/images/chevron-down.png";
 import ChevronUp from "../../../assets/images/chevron-up.png";
+import { useTranslation } from "react-i18next";
 
 interface ILanguage {
   /**
@@ -35,7 +35,10 @@ export const LanguageSelectorSharedComponent = () => {
   /**
    * hooks
    */
-  const { currentLanguage, setLanguage, translate } = useTranslationUtility();
+  const {
+    t: translate,
+    i18n: { changeLanguage: setLanguage, language: currentLanguage },
+  } = useTranslation();
 
   /**
    * states
@@ -46,7 +49,7 @@ export const LanguageSelectorSharedComponent = () => {
    * handlers
    */
   const onLanguageChange = (newLanguage: string) => {
-    if (newLanguage !== currentLanguage()) {
+    if (newLanguage !== currentLanguage) {
       setLanguage(newLanguage);
       setShowPicker(false);
     }
@@ -61,7 +64,7 @@ export const LanguageSelectorSharedComponent = () => {
       >
         <>
           <Text style={styles.wrapper__active_language__text}>
-            {translate(`header.language_selector.short.${currentLanguage()}`)}
+            {translate(`header.language_selector.short.${currentLanguage}`)}
           </Text>
           <Image
             style={styles.wrapper__active_language__icon}
@@ -79,7 +82,7 @@ export const LanguageSelectorSharedComponent = () => {
             >
               <Text
                 style={{
-                  ...(language.key === currentLanguage()
+                  ...(language.key === currentLanguage
                     ? styles.wrapper__picker__is_active_language
                     : {}),
                   textTransform: "capitalize",

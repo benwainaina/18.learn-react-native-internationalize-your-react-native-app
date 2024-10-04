@@ -8,7 +8,7 @@ import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import { useNavigation } from "expo-router";
 import { useEffect, useState } from "react";
 import { LanguageSelectorSharedComponent } from "./shared/components/LanguageSelector.component.shared";
-import { useTranslationUtility } from "./shared/utilities/useTranslation.utility";
+import { useTranslation } from "react-i18next";
 
 export default function Index() {
   /**
@@ -25,7 +25,7 @@ export default function Index() {
   const route = useRoute();
   const nestedRoute = getFocusedRouteNameFromRoute(route);
   const navigation = useNavigation();
-  const { translate } = useTranslationUtility();
+  const { t: translate } = useTranslation();
 
   /**
    * states
