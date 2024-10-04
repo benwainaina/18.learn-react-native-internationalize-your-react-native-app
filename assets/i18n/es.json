@@ -1,0 +1,39 @@
+{
+  "translation": {
+    "header": {
+      "language_selector": {
+        "short": {
+          "en": "es",
+          "ar": "Arkansas",
+          "es": "es"
+        },
+        "long": {
+          "english": "inglés",
+          "arabic": "árabe",
+          "spanish": "español"
+        }
+      }
+    },
+    "content": {
+      "home": {
+        "salutation": "Bienvenido de nuevo"
+      },
+      "profile": {
+        "form": {
+          "username": "Nombre de usuario",
+          "password": "Contraseña",
+          "button": "Actualizar perfil"
+        },
+        "notifications": {
+          "success": "Perfil actualizado exitosamente"
+        }
+      }
+    },
+    "footer": {
+      "navigation": {
+        "home": "hogar",
+        "profile": "perfil"
+      }
+    }
+  }
+}

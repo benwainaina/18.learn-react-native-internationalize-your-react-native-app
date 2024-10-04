@@ -6,8 +6,14 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
+import { useTranslationUtility } from "../shared/utilities/useTranslation.utility";
 
 export const ProfileComponent = () => {
+  /**
+   * hooks
+   */
+  const { translate } = useTranslationUtility();
+
   /**
    * states
    */
@@ -27,13 +33,13 @@ export const ProfileComponent = () => {
     <View style={styles.wrapper}>
       <View style={{ rowGap: 24, width: "100%" }}>
         <TextInput
-          placeholder="Username"
+          placeholder={translate("content.profile.form.username")}
           style={styles.input}
           onChangeText={(newText: string) => setUsername(newText)}
         ></TextInput>
         <TextInput
           secureTextEntry={true}
-          placeholder="Password"
+          placeholder={translate("content.profile.form.password")}
           style={styles.input}
           onChangeText={(newText: string) => setPassword(newText)}
         ></TextInput>
@@ -47,12 +53,14 @@ export const ProfileComponent = () => {
         }}
         onPress={() => setShowNotification(true)}
       >
-        <Text style={styles.buttonText}>Update profile</Text>
+        <Text style={styles.buttonText}>
+          {translate("content.profile.form.button")}
+        </Text>
       </TouchableHighlight>
       {showNotification && (
         <View style={styles.notification}>
           <Text style={styles.notificationText}>
-            Profile updated successfully
+            {translate("content.profile.notifications.success")}
           </Text>
         </View>
       )}

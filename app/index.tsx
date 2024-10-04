@@ -2,19 +2,21 @@ import {
   getFocusedRouteNameFromRoute,
   useRoute,
 } from "@react-navigation/native";
+import "./i18n.config";
 import { AppRoutes } from "./routes";
-import { LanguageSelectorSharedComponent } from "./shared/components/LanguageSelector.component.shared";
-import { Text, TouchableHighlight, View } from "react-native";
+import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import { useNavigation } from "expo-router";
 import { useEffect, useState } from "react";
+import { LanguageSelectorSharedComponent } from "./shared/components/LanguageSelector.component.shared";
+import { useTranslationUtility } from "./shared/utilities/useTranslation.utility";
 
 export default function Index() {
   /**
    * constants
    */
   const availableRoutes: Array<{ routeName: string; label: string }> = [
-    { routeName: "home", label: "Home" },
-    { routeName: "profile", label: "Profile" },
+    { routeName: "home", label: "footer.navigation.home" },
+    { routeName: "profile", label: "footer.navigation.profile" },
   ];
 
   /**
@@ -23,6 +25,7 @@ export default function Index() {
   const route = useRoute();
   const nestedRoute = getFocusedRouteNameFromRoute(route);
   const navigation = useNavigation();
+  const { translate } = useTranslationUtility();
 
   /**
    * states
@@ -39,27 +42,12 @@ export default function Index() {
   }, [nestedRoute]);
 
   return (
-    <View
-      style={{
-        justifyContent: "space-between",
-        height: "100%",
-        paddingHorizontal: 12,
-        backgroundColor: "white",
-      }}
-    >
+    <View style={styles.wrapper}>
       <View style={{ paddingVertical: 12 }}>
         <LanguageSelectorSharedComponent />
       </View>
       <AppRoutes></AppRoutes>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          paddingVertical: 24,
-          columnGap: 124,
-        }}
-      >
+      <View style={styles.wrapper__content}>
         {availableRoutes.map((availableRoute) => (
           <TouchableHighlight
             key={availableRoute.routeName}
@@ -72,9 +60,10 @@ export default function Index() {
                   availableRoute.routeName === currentRouteName
                     ? "bold"
                     : "normal",
+                textTransform: "capitalize",
               }}
             >
-              {availableRoute.label}
+              {translate(availableRoute.label)}
             </Text>
           </TouchableHighlight>
         ))}
@@ -82,3 +71,19 @@ export default function Index() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  wrapper: {
+    justifyContent: "space-between",
+    height: "100%",
+    paddingHorizontal: 12,
+    backgroundColor: "white",
+  },
+  wrapper__content: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 24,
+    columnGap: 124,
+  },
+});

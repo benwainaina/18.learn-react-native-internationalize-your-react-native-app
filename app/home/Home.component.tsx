@@ -1,12 +1,18 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import LogoPng from "../../assets/images/logo.png";
+import { useTranslationUtility } from "../shared/utilities/useTranslation.utility";
 
 export const HomeComponent = () => {
+  /**
+   * hooks
+   */
+  const { translate } = useTranslationUtility();
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.wrapper__section_one}>
         <Text style={styles.wrapper__section_one__salutation}>
-          Welcome back
+          {translate("content.home.salutation")}
         </Text>
         <Text style={styles.wrapper__section_one__username}>Benson</Text>
       </View>

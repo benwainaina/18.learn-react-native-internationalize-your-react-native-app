@@ -27,14 +27,15 @@ export const LanguageSelectorSharedComponent = () => {
    * constants
    */
   const supportedLanguages: Array<ILanguage> = [
-    { key: "en", label: "English" },
-    { key: "ar", label: "Arabic" },
+    { key: "en", label: "header.language_selector.long.english" },
+    { key: "ar", label: "header.language_selector.long.arabic" },
+    { key: "es", label: "header.language_selector.long.spanish" },
   ];
 
   /**
    * hooks
    */
-  const { currentLanguage, setLanguage } = useTranslationUtility();
+  const { currentLanguage, setLanguage, translate } = useTranslationUtility();
 
   /**
    * states
@@ -60,7 +61,7 @@ export const LanguageSelectorSharedComponent = () => {
       >
         <>
           <Text style={styles.wrapper__active_language__text}>
-            {currentLanguage()}
+            {translate(`header.language_selector.short.${currentLanguage()}`)}
           </Text>
           <Image
             style={styles.wrapper__active_language__icon}
@@ -77,13 +78,14 @@ export const LanguageSelectorSharedComponent = () => {
               onPress={() => onLanguageChange(language.key)}
             >
               <Text
-                style={
-                  language.key === currentLanguage()
+                style={{
+                  ...(language.key === currentLanguage()
                     ? styles.wrapper__picker__is_active_language
-                    : {}
-                }
+                    : {}),
+                  textTransform: "capitalize",
+                }}
               >
-                {language.label}
+                {translate(language.label)}
               </Text>
             </TouchableHighlight>
           ))}

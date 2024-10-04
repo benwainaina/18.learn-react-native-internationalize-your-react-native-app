@@ -1,3 +1,39 @@
 {
-  "TESTING": "testing"
+  "translation": {
+    "header": {
+      "language_selector": {
+        "short": {
+          "en": "أون",
+          "ar": "ع",
+          "es": "وفاق"
+        },
+        "long": {
+          "english": "إنجليزي",
+          "arabic": "عربي",
+          "spanish": "الأسبانية"
+        }
+      }
+    },
+    "content": {
+      "home": {
+        "salutation": "مرحبًا بعودتك"
+      },
+      "profile": {
+        "form": {
+          "username": "اسم المستخدم",
+          "password": "كلمة المرور",
+          "button": "تحديث الملف الشخصي"
+        },
+        "notifications": {
+          "success": "تم تحديث الملف الشخصي بنجاح"
+        }
+      }
+    },
+    "footer": {
+      "navigation": {
+        "home": "بيت",
+        "profile": "حساب تعريفي"
+      }
+    }
+  }
 }
