@@ -6,13 +6,13 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
-import { useTranslation } from "react-i18next";
+import { useTranslationUtility } from "../shared/utilities/useTranslation.utility";
 
 export const ProfileComponent = () => {
   /**
    * hooks
    */
-  const { t: translate } = useTranslation();
+  const { translate } = useTranslationUtility();
 
   /**
    * states

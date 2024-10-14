@@ -1,10 +1,10 @@
-import { useTranslation as translationLibrary } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 export const useTranslationUtility = () => {
   /**
    * translation hook
    */
-  const { t, i18n } = translationLibrary();
+  const { t, i18n } = useTranslation();
 
   return {
     setLanguage: (newLanguage: string) => i18n.changeLanguage(newLanguage),

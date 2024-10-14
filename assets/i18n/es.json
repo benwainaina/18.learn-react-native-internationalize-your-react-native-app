@@ -5,12 +5,14 @@
         "short": {
           "en": "es",
           "ar": "Arkansas",
-          "es": "es"
+          "es": "es",
+          "sw": "sudoeste"
         },
         "long": {
           "english": "inglés",
           "arabic": "árabe",
-          "spanish": "español"
+          "spanish": "español",
+          "swahili": "swahili"
         }
       }
     },

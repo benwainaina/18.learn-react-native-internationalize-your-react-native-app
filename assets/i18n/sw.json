@@ -3,38 +3,38 @@
     "header": {
       "language_selector": {
         "short": {
-          "en": "en",
+          "en": "sw",
           "ar": "ar",
           "es": "es",
           "sw": "sw"
         },
         "long": {
-          "english": "english",
-          "arabic": "arabic",
-          "spanish": "spanish",
-          "swahili": "swahili"
+          "english": "kiingereza",
+          "arabic": "kiarabu",
+          "spanish": "Kihispania",
+          "swahili": "kiswahili"
         }
       }
     },
     "content": {
       "home": {
-        "salutation": "Welcome back"
+        "salutation": "Karibu tena"
       },
       "profile": {
         "form": {
-          "username": "Username",
-          "password": "Password",
-          "button": "Update profile"
+          "username": "Jina la mtumiaji",
+          "password": "Nenosiri",
+          "button": "Sasisha wasifu"
         },
         "notifications": {
-          "success": "Profile updated successfully"
+          "success": "Wasifu umesasishwa"
         }
       }
     },
     "footer": {
       "navigation": {
-        "home": "home",
-        "profile": "profile"
+        "home": "nyumbani",
+        "profile": "wasifu"
       }
     }
   }

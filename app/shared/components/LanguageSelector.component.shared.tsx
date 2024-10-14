@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import ChevronDown from "../../../assets/images/chevron-down.png";
 import ChevronUp from "../../../assets/images/chevron-up.png";
-import { useTranslation } from "react-i18next";
+import { useTranslationUtility } from "../utilities/useTranslation.utility";
 
 interface ILanguage {
   /**
@@ -30,15 +30,13 @@ export const LanguageSelectorSharedComponent = () => {
     { key: "en", label: "header.language_selector.long.english" },
     { key: "ar", label: "header.language_selector.long.arabic" },
     { key: "es", label: "header.language_selector.long.spanish" },
+    { key: "sw", label: "header.language_selector.long.swahili" },
   ];
 
   /**
    * hooks
    */
-  const {
-    t: translate,
-    i18n: { changeLanguage: setLanguage, language: currentLanguage },
-  } = useTranslation();
+  const { setLanguage, currentLanguage, translate } = useTranslationUtility();
 
   /**
    * states
@@ -49,7 +47,7 @@ export const LanguageSelectorSharedComponent = () => {
    * handlers
    */
   const onLanguageChange = (newLanguage: string) => {
-    if (newLanguage !== currentLanguage) {
+    if (newLanguage !== currentLanguage()) {
       setLanguage(newLanguage);
       setShowPicker(false);
     }
@@ -64,7 +62,7 @@ export const LanguageSelectorSharedComponent = () => {
       >
         <>
           <Text style={styles.wrapper__active_language__text}>
-            {translate(`header.language_selector.short.${currentLanguage}`)}
+            {translate(`header.language_selector.short.${currentLanguage()}`)}
           </Text>
           <Image
             style={styles.wrapper__active_language__icon}
@@ -82,7 +80,7 @@ export const LanguageSelectorSharedComponent = () => {
             >
               <Text
                 style={{
-                  ...(language.key === currentLanguage
+                  ...(language.key === currentLanguage()
                     ? styles.wrapper__picker__is_active_language
                     : {}),
                   textTransform: "capitalize",
